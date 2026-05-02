@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Managed Hosting & Maintenance - WebGenix</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .service-hero {
+            padding: 140px 0 80px;
+            text-align: center;
+            position: relative;
+        }
+        .service-hero h1 {
+            font-family: var(--font-display);
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+        .service-hero .price-tag {
+            font-size: 2rem;
+            color: var(--color-primary);
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+        .service-details {
+            padding: 80px 0;
+        }
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            margin-top: 48px;
+        }
+        .doable-list {
+            list-style: none;
+        }
+        .doable-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            color: var(--color-text-secondary);
+        }
+        .doable-list li::before {
+            content: "✓ ";
+            color: var(--color-success);
+            font-weight: 700;
+        }
+        .cta-box {
+            background: var(--color-surface);
+            border: 1px solid rgba(59,130,246,0.2);
+            border-radius: var(--radius-lg);
+            padding: 48px;
+            text-align: center;
+            margin-top: 64px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <div class="logo-icon"><span>W</span></div>
+                    <span class="logo-text">WebGenix</span>
+                </a>
+                <a href="../index.html#services" class="btn-nav">← Back to Services</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="service-hero">
+        <div class="container">
+            <div class="animate-on-scroll">🛡️</div>
+            <h1 class="animate-on-scroll">Managed Hosting & Maintenance</h1>
+            <p class="section-description animate-on-scroll">Very important recurring plan for peace of mind</p>
+            <div class="price-tag animate-on-scroll">₹1,499/mo - ₹9,999/mo</div>
+            <a href="../index.html#contact" class="btn btn-primary btn-lg animate-on-scroll">Get Started</a>
+        </div>
+    </section>
+
+    <section class="service-details">
+        <div class="container">
+            <div class="details-grid">
+                <div class="animate-on-scroll">
+                    <h3 class="step-title">What's Included</h3>
+                    <ul class="doable-list">
+                        <li>SSD Hosting (VPS/Shared based on plan)</li>
+                        <li>SSL Certificate (Free renewals)</li>
+                        <li>Daily/Weekly Automated Backups</li>
+                        <li>Uptime Monitoring (24/7 alerts)</li>
+                        <li>Security Hardening (Firewall, DDoS)</li>
+                        <li>Technical Support (Email/Chat)</li>
+                    </ul>
+                </div>
+                <div class="animate-on-scroll">
+                    <h3 class="step-title">What's Doable</h3>
+                    <ul class="doable-list">
+                        <li>CDN Setup (Cloudflare)</li>
+                        <li>Email hosting setup</li>
+                        <li>Domain management</li>
+                        <li>Performance optimization (caching)</li>
+                        <li>Malware scanning & removal</li>
+                        <li>Database optimization</li>
+                        <li>Monthly performance reports</li>
+                        <li>Priority support (higher tiers)</li>
+                        <li>Staging environment setup</li>
+                        <li>Git deployment pipeline</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="cta-box animate-on-scroll">
+                <h2>Want Stress-Free Hosting?</h2>
+                <p style="margin: 16px 0 24px; color: var(--color-text-secondary);">Let us handle the technical stuff while you focus on business.</p>
+                <a href="../index.html#contact" class="btn btn-primary btn-lg">Start Plan</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top" style="grid-template-columns: 1fr; text-align: center;">
+                <div class="footer-brand">
+                    <div class="logo" style="justify-content: center;">
+                        <div class="logo-icon"><span>W</span></div>
+                        <span class="logo-text">WebGenix</span>
+                    </div>
+                    <p>Building digital experiences for startups and small businesses.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>

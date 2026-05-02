@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Growth Website - WebGenix</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .page-wrapper { max-width: 85vw; margin: 0 auto; padding: 0 20px; }
+        .hero-section { padding: 120px 0 60px; min-height: auto; }
+        .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .hero-left { text-align: left; }
+        .hero-badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.2); border-radius: 9999px; font-size: 0.8rem; font-weight: 500; color: var(--color-primary); margin-bottom: 20px; }
+        .hero-title { font-family: var(--font-display); font-size: 3.5rem; font-weight: 800; line-height: 1.1; margin-bottom: 20px; }
+        .hero-desc { font-size: 1.1rem; color: var(--color-text-secondary); margin-bottom: 24px; line-height: 1.7; }
+        .price-display { font-size: 2.5rem; font-weight: 800; color: var(--color-primary); margin-bottom: 24px; }
+        .cta-group { display: flex; gap: 16px; margin-bottom: 20px; }
+        .trust-points { display: flex; gap: 20px; flex-wrap: wrap; }
+        .trust-point { display: flex; align-items: center; gap: 6px; font-size: 0.85rem; color: var(--color-text-secondary); }
+        .hero-right { position: relative; }
+        .browser-mockup { background: var(--color-surface); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+        .browser-bar { background: rgba(255, 255, 255, 0.05); padding: 12px 16px; display: flex; gap: 8px; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+        .browser-dot { width: 12px; height: 12px; border-radius: 50%; }
+        .dot-red { background: #ef4444; } .dot-yellow { background: #f59e0b; } .dot-green { background: #22c55e; }
+        .browser-content { padding: 40px; min-height: 300px; display: flex; align-items: center; justify-content: center; font-size: 4rem; background: linear-gradient(135deg, var(--color-bg), var(--color-surface)); }
+        .floating-badge { position: absolute; padding: 8px 16px; background: var(--color-surface); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 8px; font-size: 0.8rem; box-shadow: 0 8px 20px rgba(0,0,0,0.2); animation: float 3s ease-in-out infinite; }
+        .badge-1 { top: 20%; right: -20px; animation-delay: 0s; } .badge-2 { bottom: 30%; left: -20px; animation-delay: 1s; }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+        .trust-bar { background: var(--color-surface); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 16px; padding: 24px 40px; margin: 0 0 60px; display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px; }
+        .trust-item { display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: var(--color-text-secondary); }
+        .trust-icon { font-size: 1.2rem; }
+        .section-block { padding: 60px 0; }
+        .section-block.alt { background: var(--color-bg-alt); border-radius: 24px; padding: 60px 40px; margin: 0 0 60px; }
+        .section-title { font-family: var(--font-display); font-size: 2.5rem; font-weight: 700; margin-bottom: 16px; }
+        .text-center { text-align: center; }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 40px; }
+        .feature-card { background: var(--color-surface); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 16px; padding: 28px; transition: all 300ms ease; }
+        .feature-card:hover { transform: translateY(-5px); border-color: rgba(59, 130, 246, 0.2); }
+        .feature-icon { font-size: 2rem; margin-bottom: 16px; }
+        .feature-title { font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; margin-bottom: 8px; }
+        .feature-desc { font-size: 0.85rem; color: var(--color-text-secondary); line-height: 1.6; }
+        .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; margin-top: 40px; }
+        .process-card { text-align: center; padding: 32px 16px; background: var(--color-surface); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 16px; transition: all 300ms ease; }
+        .process-card:hover { transform: translateY(-5px); border-color: rgba(139, 92, 246, 0.2); }
+        .process-number { font-family: var(--font-display); font-size: 2.5rem; font-weight: 800; color: var(--color-accent); opacity: 0.3; margin-bottom: 12px; }
+        .process-icon { font-size: 2rem; margin-bottom: 12px; }
+        .process-title { font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; margin-bottom: 8px; }
+        .process-desc { font-size: 0.85rem; color: var(--color-text-secondary); line-height: 1.5; }
+        .preview-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 40px; }
+        .preview-card { background: var(--color-surface); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 16px; overflow: hidden; transition: all 300ms ease; }
+        .preview-card:hover { transform: translateY(-5px); box-shadow: 0 12px 24px rgba(0,0,0,0.2); }
+        .preview-image { height: 200px; background: linear-gradient(135deg, var(--color-bg), var(--color-surface)); display: flex; align-items: center; justify-content: center; font-size: 4rem; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+        .preview-content { padding: 20px; }
+        .preview-title { font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; margin-bottom: 8px; }
+        .preview-desc { font-size: 0.85rem; color: var(--color-text-secondary); }
+        .benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 40px; }
+        .benefit-card { background: var(--color-surface); border: 1px solid rgba(34, 197, 94, 0.2); border-radius: 16px; padding: 28px; transition: all 300ms ease; }
+        .benefit-card:hover { transform: translateY(-5px); border-color: rgba(34, 197, 94, 0.4); }
+        .benefit-icon { font-size: 2rem; margin-bottom: 16px; }
+        .benefit-title { font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; margin-bottom: 8px; }
+        .benefit-desc { font-size: 0.85rem; color: var(--color-text-secondary); line-height: 1.6; }
+        .faq-list { max-width: 800px; margin: 40px auto 0; }
+        .faq-item { border-bottom: 1px solid rgba(255, 255, 255, 0.05); padding: 20px 0; cursor: pointer; }
+        .faq-question { display: flex; justify-content: space-between; align-items: center; font-weight: 600; font-size: 1rem; }
+        .faq-toggle { font-size: 1.5rem; color: var(--color-text-muted); transition: all 250ms ease; font-weight: 300; }
+        .faq-item.active .faq-toggle { transform: rotate(45deg); color: var(--color-primary); }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 350ms ease, margin-top 350ms ease; color: var(--color-text-secondary); font-size: 0.9rem; line-height: 1.7; }
+        .faq-item.active .faq-answer { max-height: 200px; margin-top: 12px; }
+        .cta-banner { background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1)); border: 1px solid rgba(59, 130, 246, 0.2); border-radius: 24px; padding: 60px 40px; text-align: center; margin: 60px 0; }
+        .cta-banner h2 { font-family: var(--font-display); font-size: 2.5rem; font-weight: 800; margin-bottom: 16px; }
+        .cta-banner p { font-size: 1.1rem; color: var(--color-text-secondary); margin-bottom: 32px; max-width: 600px; margin-left: auto; margin-right: auto; }
+        .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+        @media (max-width: 768px) {
+            .hero-grid { grid-template-columns: 1fr; } .hero-left { text-align: center; } .cta-group { justify-content: center; flex-direction: column; align-items: center; } .trust-points { justify-content: center; } .hero-title { font-size: 2.5rem; } .price-display { font-size: 2rem; } .trust-bar { flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../index.html" class="logo">
+                    <div class="logo-icon"><span>W</span></div>
+                    <span class="logo-text">WebGenix</span>
+                </a>
+                <a href="../index.html#services" class="btn-nav">← Back to Services</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero-section">
+        <div class="page-wrapper">
+            <div class="hero-grid">
+                <div class="hero-left animate-on-scroll">
+                    <div class="hero-badge">📈 Business Growth</div>
+                    <h1 class="hero-title">Business<br>Growth Website</h1>
+                    <p class="hero-desc">For SMEs and service brands ready to scale their online presence and capture more leads.</p>
+                    <div class="price-display">₹19,999 - ₹34,999</div>
+                    <div class="cta-group">
+                        <a href="../index.html#contact" class="btn btn-primary btn-lg">Get Started</a>
+                        <a href="../index.html#contact" class="btn btn-secondary btn-lg">Talk to Expert</a>
+                    </div>
+                    <div class="trust-points">
+                        <div class="trust-point">✓ 14-21 Days Delivery</div>
+                        <div class="trust-point">✓ Lead Funnels</div>
+                        <div class="trust-point">✓ 3 Months Support</div>
+                    </div>
+                </div>
+                <div class="hero-right animate-on-scroll">
+                    <div class="browser-mockup">
+                        <div class="browser-bar"><div class="browser-dot dot-red"></div><div class="browser-dot dot-yellow"></div><div class="browser-dot dot-green"></div></div>
+                        <div class="browser-content">📈</div>
+                    </div>
+                    <div class="floating-badge badge-1">📊 SEO Ready</div>
+                    <div class="floating-badge badge-2">📱 Mobile First</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="page-wrapper">
+        <div class="trust-bar animate-on-scroll">
+            <div class="trust-item"><span class="trust-icon">✓</span> 50+ Business Clients</div>
+            <div class="trust-item"><span class="trust-icon">📊</span> SEO Optimized</div>
+            <div class="trust-item"><span class="trust-icon">📧</span> Lead Capture</div>
+            <div class="trust-item"><span class="trust-icon">⚡</span> Fast Loading</div>
+            <div class="trust-item"><span class="trust-icon">🎧</span> 3 Months Support</div>
+        </div>
+    </div>
+
+    <section class="section-block">
+        <div class="page-wrapper">
+            <div class="text-center animate-on-scroll">
+                <div class="section-tag">What's Included</div>
+                <h2 class="section-title">Core <span class="text-gradient">Features</span></h2>
+                <p class="section-description">Everything you need to grow your business online</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card animate-on-scroll"><div class="feature-icon">📄</div><h3 class="feature-title">5-10 Custom Pages</h3><p class="feature-desc">Home, About, Services, Blog, Contact, and more pages tailored to your business.</p></div>
+                <div class="feature-card animate-on-scroll"><div class="feature-icon">📝</div><h3 class="feature-title">Blog Setup</h3><p class="feature-desc">Built-in blog CMS to publish articles and improve SEO rankings.</p></div>
+                <div class="feature-card animate-on-scroll"><div class="feature-icon">🔍</div><h3 class="feature-title">Lead Capture Funnel</h3><p class="feature-desc">Forms, landing pages, and automation to convert visitors into leads.</p></div>
+                <div class="feature-card animate-on-scroll"><div class="feature-icon">📊</div><h3 class="feature-title">Advanced SEO</h3><p class="feature-desc">Keyword research, on-page optimization, and performance tuning.</p></div>
+                <div class="feature-card animate-on-scroll"><div class="feature-icon">📱</div><h3 class="feature-title">Social Integrations</h3><p class="feature-desc">Instagram feed, social sharing buttons, and social proof elements.</p></div>
+                <div class="feature-card animate-on-scroll"><div class="feature-icon">🎧</div><h3 class="feature-title">3 Months Support</h3><p class="feature-desc">Extended support period to ensure everything runs smoothly.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-block alt">
+        <div class="page-wrapper">
+            <div class="text-center animate-on-scroll">
+                <div class="section-tag">What's Doable</div>
+                <h2 class="section-title">Add-On <span class="text-gradient">Features</span></h2>
+                <p class="section-description">Enhance your website with these optional extras</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card animate-on-scroll"><div class="feature-icon">📰</div><h3 class="feature-title">Newsletter Signup</h3><p class="feature-desc">Mailchimp integration to grow your subscriber base.</p></div>
+                <div class="feature-card animate-on-scroll"><div class="feature-icon">💬</div><h3 class="feature-title">Testimonials</h3><p class="feature-desc">Customer reviews and ratings section to build trust.</p></div>
+                <div class="feature-card animate-on-scroll"><div class="feature-icon">👥</div><h3 class="feature-title">Team Profiles</h3><p class="feature-desc">Showcase your team members with photos and bios.</p></div>
+                <div class="feature-card animate-on-scroll"><div class="feature-icon">📅</div><h3 class="feature-title">Booking System</h3><p class="feature-desc">Appointment scheduling integrated with your calendar.</p></div>
+                <div class="feature-card animate-on-scroll"><div class="feature-icon">💬</div><h3 class="feature-title">Live Chat</h3><p class="feature-desc">Tawk.to or Intercom chat widget for instant customer support.</p></div>
+                <div class="feature-card animate-on-scroll"><div class="feature-icon">📈</div><h3 class="feature-title">Analytics</h3><p class="feature-desc">Google Analytics + Search Console setup and training.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-block">
+        <div class="page-wrapper">
+            <div class="text-center animate-on-scroll">
+                <div class="section-tag">How It Works</div>
+                <h2 class="section-title">Our Simple <span class="text-gradient">Process</span></h2>
+                <p class="section-description">From idea to launch in 4 clear steps</p>
+            </div>
+            <div class="process-grid">
+                <div class="process-card animate-on-scroll"><div class="process-number">01</div><div class="process-icon">💬</div><h3 class="process-title">Discussion</h3><p class="process-desc">Deep dive into your business goals and requirements.</p></div>
+                <div class="process-card animate-on-scroll"><div class="process-number">02</div><div class="process-icon">✏️</div><h3 class="process-title">Design</h3><p class="process-desc">Wireframes and mockups approved by you before coding.</p></div>
+                <div class="process-card animate-on-scroll"><div class="process-number">03</div><div class="process-icon">⚡</div><h3 class="process-title">Development</h3><p class="process-desc">Agile development with regular progress updates.</p></div>
+                <div class="process-card animate-on-scroll"><div class="process-number">04</div><div class="process-icon">🚀</div><h3 class="process-title">Launch</h3><p class="process-desc">Go live with 3 months of free support included.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-block alt">
+        <div class="page-wrapper">
+            <div class="text-center animate-on-scroll">
+                <div class="section-tag">Live Preview</div>
+                <h2 class="section-title">See What You'll <span class="text-gradient">Get</span></h2>
+                <p class="section-description">Sample designs for business growth websites</p>
+            </div>
+            <div class="preview-grid">
+                <div class="preview-card animate-on-scroll"><div class="preview-image">🖥️</div><div class="preview-content"><h4 class="preview-title">Homepage</h4><p class="preview-desc">Hero, services, testimonials, lead capture.</p></div></div>
+                <div class="preview-card animate-on-scroll"><div class="preview-image">📝</div><div class="preview-content"><h4 class="preview-title">Blog Section</h4><p class="preview-desc">CMS-powered blog with categories and search.</p></div></div>
+                <div class="preview-card animate-on-scroll"><div class="preview-image">📱</div><div class="preview-content"><h4 class="preview-title">Mobile View</h4><p class="preview-desc">Perfect responsive experience on all devices.</p></div></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-block">
+        <div class="page-wrapper">
+            <div class="text-center animate-on-scroll">
+                <div class="section-tag">Why Choose This</div>
+                <h2 class="section-title">Benefits of <span class="text-gradient">Growth Package</span></h2>
+                <p class="section-description">Why this package is perfect for growing SMEs</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card animate-on-scroll"><div class="benefit-icon">📈</div><h3 class="benefit-title">Lead Generation</h3><p class="benefit-desc">Built-in funnels designed to convert visitors into paying customers.</p></div>
+                <div class="benefit-card animate-on-scroll"><div class="benefit-icon">📊</div><h3 class="benefit-title">SEO Powered</h3><p class="benefit-desc">Advanced optimization to rank higher and get more organic traffic.</p></div>
+                <div class="benefit-card animate-on-scroll"><div class="benefit-icon">🚀</div><h3 class="benefit-title">Fast Deployment</h3><p class="benefit-desc">Launch in 14-21 days with our streamlined process.</p></div>
+                <div class="benefit-card animate-on-scroll"><div class="benefit-icon">🔒</div><h3 class="benefit-title">Secure & Reliable</h3><p class="benefit-desc">SSL, backups, and security hardening included.</p></div>
+                <div class="benefit-card animate-on-scroll"><div class="benefit-icon">📱</div><h3 class="benefit-title">Mobile Optimized</h3><p class="benefit-desc">Responsive design that converts mobile visitors too.</p></div>
+                <div class="benefit-card animate-on-scroll"><div class="benefit-icon">🎧</div><h3 class="benefit-title">Extended Support</h3><p class="benefit-desc">3 months of support gives you peace of mind post-launch.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-block alt">
+        <div class="page-wrapper">
+            <div class="text-center animate-on-scroll">
+                <div class="section-tag">Common Questions</div>
+                <h2 class="section-title">Frequently Asked <span class="text-gradient">Questions</span></h2>
+                <p class="section-description">Everything you need to know before getting started</p>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item active" data-index="0"><div class="faq-question"><span>How long does delivery take?</span><span class="faq-toggle">+</span></div><div class="faq-answer"><p>Typically 14-21 days from receiving all content. Rush delivery available for 25% extra.</p></div></div>
+                <div class="faq-item" data-index="1"><div class="faq-question"><span>Can I add e-commerce later?</span><span class="faq-toggle">+</span></div><div class="faq-answer"><p>Yes! You can upgrade to our E-Commerce Store package anytime. We'll credit your previous investment.</p></div></div>
+                <div class="faq-item" data-index="2"><div class="faq-question"><span>Is SEO really included?</span><span class="faq-toggle">+</span></div><div class="faq-answer"><p>Absolutely! Keyword research, meta tags, sitemap, and performance optimization are all included.</p></div></div>
+                <div class="faq-item" data-index="3"><div class="faq-question"><span>What about domain & hosting?</span><span class="faq-toggle">+</span></div><div class="faq-answer"><p>Not included but we guide you through setup. Our Managed Hosting starts at ₹1,499/mo.</p></div></div>
+                <div class="faq-item" data-index="4"><div class="faq-question"><span>How many revisions?</span><span class="faq-toggle">+</span></div><div class="faq-answer"><p>2 rounds of revisions included. Additional revisions at ₹2,000 per round.</p></div></div>
+                <div class="faq-item" data-index="5"><div class="faq-question"><span>What support after launch?</span><span class="faq-toggle">+</span></div><div class="faq-answer"><p>3 months free support included. After that, choose our Managed Hosting plan.</p></div></div>
+            </div>
+        </div>
+    </section>
+
+    <div class="page-wrapper">
+        <div class="cta-banner animate-on-scroll">
+            <h2>Ready to Grow Your<br>Business Online?</h2>
+            <p>Let's build a website that captures leads and grows your SME. Starting at ₹19,999.</p>
+            <div class="cta-buttons">
+                <a href="../index.html#contact" class="btn btn-primary btn-lg">Get Started Now</a>
+                <a href="../index.html#contact" class="btn btn-secondary btn-lg">Book Free Consultation</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top" style="grid-template-columns: 1fr; text-align: center;">
+                <div class="footer-brand">
+                    <div class="logo" style="justify-content: center;"><div class="logo-icon"><span>W</span></div><span class="logo-text">WebGenix</span></div>
+                    <p>Building digital experiences for startups and small businesses.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script>
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.querySelector('.faq-question').addEventListener('click', function() {
+                const isActive = item.classList.contains('active');
+                document.querySelectorAll('.faq-item').forEach(f => f.classList.remove('active'));
+                if (!isActive) item.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
