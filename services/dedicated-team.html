@@ -8,52 +8,72 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../style.css">
     <style>
-        .service-hero {
-            padding: 140px 0 80px;
-            text-align: center;
-            position: relative;
-        }
-        .service-hero h1 {
-            font-family: var(--font-display);
-            font-size: 3.5rem;
-            font-weight: 800;
-            margin-bottom: 20px;
-        }
-        .service-hero .price-tag {
-            font-size: 2rem;
-            color: var(--color-primary);
-            font-weight: 700;
-            margin-bottom: 24px;
-        }
-        .service-details {
-            padding: 80px 0;
-        }
-        .details-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 48px;
-            margin-top: 48px;
-        }
-        .doable-list {
-            list-style: none;
-        }
-        .doable-list li {
-            padding: 12px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            color: var(--color-text-secondary);
-        }
-        .doable-list li::before {
-            content: "✓ ";
-            color: var(--color-success);
-            font-weight: 700;
-        }
-        .cta-box {
-            background: var(--color-surface);
-            border: 1px solid rgba(59,130,246,0.2);
-            border-radius: var(--radius-lg);
-            padding: 48px;
-            text-align: center;
-            margin-top: 64px;
+        .page-wrapper { max-width: 85vw; margin: 0 auto; padding: 0 20px; }
+        .hero-section { padding: 120px 0 60px; min-height: auto; }
+        .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .hero-left { text-align: left; }
+        .hero-badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.2); border-radius: 9999px; font-size: 0.8rem; font-weight: 500; color: var(--color-primary); margin-bottom: 20px; }
+        .hero-title { font-family: var(--font-display); font-size: 3.5rem; font-weight: 800; line-height: 1.1; margin-bottom: 20px; }
+        .hero-desc { font-size: 1.1rem; color: var(--color-text-secondary); margin-bottom: 24px; line-height: 1.7; }
+        .price-display { font-size: 2.5rem; font-weight: 800; color: var(--color-primary); margin-bottom: 24px; }
+        .cta-group { display: flex; gap: 16px; margin-bottom: 20px; }
+        .trust-points { display: flex; gap: 20px; flex-wrap: wrap; }
+        .trust-point { display: flex; align-items: center; gap: 6px; font-size: 0.85rem; color: var(--color-text-secondary); }
+        .hero-right { position: relative; }
+        .browser-mockup { background: var(--color-surface); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; overflow: hidden; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); }
+        .browser-bar { background: rgba(255, 255, 255, 0.05); padding: 12px 16px; display: flex; gap: 8px; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+        .browser-dot { width: 12px; height: 12px; border-radius: 50%; }
+        .dot-red { background: #ef4444; } .dot-yellow { background: #f59e0b; } .dot-green { background: #22c55e; }
+        .browser-content { padding: 40px; min-height: 300px; display: flex; align-items: center; justify-content: center; font-size: 4rem; background: linear-gradient(135deg, var(--color-bg), var(--color-surface)); }
+        .floating-badge { position: absolute; padding: 8px 16px; background: var(--color-surface); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 8px; font-size: 0.8rem; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); animation: float 3s ease-in-out infinite; }
+        .badge-1 { top: 20%; right: -20px; animation-delay: 0s; } .badge-2 { bottom: 30%; left: -20px; animation-delay: 1s; }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+        .trust-bar { background: var(--color-surface); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 16px; padding: 24px 40px; margin: 0 0 60px; display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px; }
+        .trust-item { display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: var(--color-text-secondary); }
+        .trust-icon { font-size: 1.2rem; }
+        .section-block { padding: 60px 0; }
+        .section-block.alt { background: var(--color-bg-alt); border-radius: 24px; padding: 60px 40px; margin: 0 0 60px; }
+        .section-title { font-family: var(--font-display); font-size: 2.5rem; font-weight: 700; margin-bottom: 16px; }
+        .text-center { text-align: center; }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 40px; }
+        .feature-card { background: var(--color-surface); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 16px; padding: 28px; transition: all 300ms ease; }
+        .feature-card:hover { transform: translateY(-5px); border-color: rgba(59, 130, 246, 0.2); }
+        .feature-icon { font-size: 2rem; margin-bottom: 16px; }
+        .feature-title { font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; margin-bottom: 8px; }
+        .feature-desc { font-size: 0.85rem; color: var(--color-text-secondary); line-height: 1.6; }
+        .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; margin-top: 40px; }
+        .process-card { text-align: center; padding: 32px 16px; background: var(--color-surface); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 16px; transition: all 300ms ease; }
+        .process-card:hover { transform: translateY(-5px); border-color: rgba(139, 92, 246, 0.2); }
+        .process-number { font-family: var(--font-display); font-size: 2.5rem; font-weight: 800; color: var(--color-accent); opacity: 0.3; margin-bottom: 12px; }
+        .process-icon { font-size: 2rem; margin-bottom: 12px; }
+        .process-title { font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; margin-bottom: 8px; }
+        .process-desc { font-size: 0.85rem; color: var(--color-text-secondary); line-height: 1.5; }
+        .preview-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 40px; }
+        .preview-card { background: var(--color-surface); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 16px; overflow: hidden; transition: all 300ms ease; }
+        .preview-card:hover { transform: translateY(-5px); box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); }
+        .preview-image { height: 200px; background: linear-gradient(135deg, var(--color-bg), var(--color-surface)); display: flex; align-items: center; justify-content: center; font-size: 4rem; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+        .preview-content { padding: 20px; }
+        .preview-title { font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; margin-bottom: 8px; }
+        .preview-desc { font-size: 0.85rem; color: var(--color-text-secondary); }
+        .benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 40px; }
+        .benefit-card { background: var(--color-surface); border: 1px solid rgba(34, 197, 94, 0.2); border-radius: 16px; padding: 28px; transition: all 300ms ease; }
+        .benefit-card:hover { transform: translateY(-5px); border-color: rgba(34, 197, 94, 0.4); }
+        .benefit-icon { font-size: 2rem; margin-bottom: 16px; }
+        .benefit-title { font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; margin-bottom: 8px; }
+        .benefit-desc { font-size: 0.85rem; color: var(--color-text-secondary); line-height: 1.6; }
+        .faq-list { max-width: 800px; margin: 40px auto 0; }
+        .faq-item { border-bottom: 1px solid rgba(255, 255, 255, 0.05); padding: 20px 0; cursor: pointer; }
+        .faq-question { display: flex; justify-content: space-between; align-items: center; font-weight: 600; font-size: 1rem; }
+        .faq-toggle { font-size: 1.5rem; color: var(--color-text-muted); transition: all 250ms ease; font-weight: 300; }
+        .faq-item.active .faq-toggle { transform: rotate(45deg); color: var(--color-primary); }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 350ms ease, margin-top 350ms ease; color: var(--color-text-secondary); font-size: 0.9rem; line-height: 1.7; }
+        .faq-item.active .faq-answer { max-height: 200px; margin-top: 12px; }
+        .cta-banner { background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1)); border: 1px solid rgba(59, 130, 246, 0.2); border-radius: 24px; padding: 60px 40px; text-align: center; margin: 60px 0; }
+        .cta-banner h2 { font-family: var(--font-display); font-size: 2.5rem; font-weight: 800; margin-bottom: 16px; }
+        .cta-banner p { font-size: 1.1rem; color: var(--color-text-secondary); margin-bottom: 32px; max-width: 600px; margin-left: auto; margin-right: auto; }
+        .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+        @media (max-width: 768px) {
+            .hero-grid { grid-template-columns: 1fr; } .hero-left { text-align: center; } .cta-group { justify-content: center; flex-direction: column; align-items: center; } .trust-points { justify-content: center; } .hero-title { font-size: 2.5rem; } .price-display { font-size: 2rem; } .trust-bar { flex-direction: column; align-items: center; }
         }
     </style>
 </head>
@@ -70,55 +90,321 @@
         </div>
     </header>
 
-    <section class="service-hero">
-        <div class="container">
-            <div class="animate-on-scroll">👥</div>
-            <h1 class="animate-on-scroll">Dedicated Development Team</h1>
-            <p class="section-description animate-on-scroll">Highly sought-after by IT firms now</p>
-            <div class="price-tag animate-on-scroll">₹35,000/mo onward per developer</div>
-            <a href="../index.html#contact" class="btn btn-primary btn-lg animate-on-scroll">Get Started</a>
+    <section class="hero-section">
+        <div class="page-wrapper">
+            <div class="hero-grid">
+                <div class="hero-left animate-on-scroll">
+                    <div class="hero-badge">👥 Dedicated Team</div>
+                    <h1 class="hero-title">Dedicated<br>Development Team</h1>
+                    <p class="hero-desc">Highly sought-after by IT firms now. Scale your team instantly.</p>
+                    <div class="price-display">₹35,000/mo onward per developer</div>
+                    <div class="cta-group">
+                        <a href="../index.html#contact" class="btn btn-primary btn-lg">Hire Team</a>
+                        <a href="../index.html#contact" class="btn btn-secondary btn-lg">Talk to Expert</a>
+                    </div>
+                    <div class="trust-points">
+                        <div class="trust-point">✓ Per Developer Billing</div>
+                        <div class="trust-point">✓ Full-Time Allocation</div>
+                        <div class="trust-point">✓ Agile Reporting</div>
+                    </div>
+                </div>
+                <div class="hero-right animate-on-scroll">
+                    <div class="browser-mockup">
+                        <div class="browser-bar">
+                            <div class="browser-dot dot-red"></div>
+                            <div class="browser-dot dot-yellow"></div>
+                            <div class="browser-dot dot-green"></div>
+                        </div>
+                        <div class="browser-content">👥</div>
+                    </div>
+                    <div class="floating-badge badge-1">⚡ MERN Dev</div>
+                    <div class="floating-badge badge-2">🎨 UI/UX</div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section class="service-details">
-        <div class="container">
-            <div class="details-grid">
-                <div class="animate-on-scroll">
-                    <h3 class="step-title">What's Included</h3>
-                    <ul class="doable-list">
-                        <li>MERN Developer (Full-time allocation)</li>
-                        <li>UI/UX Designer (Part-time/Ful-time)</li>
-                        <li>Backend Engineer (Node.js/Python)</li>
-                        <li>Priority Delivery (SLA guarantees)</li>
-                        <li>Agile Reporting (Jira/Slack updates)</li>
-                        <li>Full Team Access (Direct communication)</li>
-                    </ul>
-                </div>
-                <div class="animate-on-scroll">
-                    <h3 class="step-title">What's Doable</h3>
-                    <ul class="doable-list">
-                        <li>Additional DevOps engineer</li>
-                        <li>QA/Testing specialist</li>
-                        <li>Project manager assignment</li>
-                        <li>24/7 coverage (follow-the-sun)</li>
-                        <li>Direct integration with your tools</li>
-                        <li>On-site visit (extra cost)</li>
-                        <li>Custom reporting dashboards</li>
-                        <li>Code review & architecture audits</li>
-                        <li>Security audits & penetration testing</li>
-                        <li>Monthly strategy & roadmap sessions</li>
-                        <li>Access to additional specialists</li>
-                    </ul>
-                </div>
-            </div>
+    <div class="page-wrapper">
+        <div class="trust-bar animate-on-scroll">
+            <div class="trust-item"><span class="trust-icon">✓</span> 20+ IT Firms Served</div>
+            <div class="trust-item"><span class="trust-icon">👥</span> MERN Developer</div>
+            <div class="trust-item"><span class="trust-icon">🎨</span> UI/UX Designer</div>
+            <div class="trust-item"><span class="trust-icon">⚙</span> Backend Engineer</div>
+            <div class="trust-item"><span class="trust-icon">📊</span> Agile Reporting</div>
+        </div>
+    </div>
 
-            <div class="cta-box animate-on-scroll">
-                <h2>Need a Full Development Team?</h2>
-                <p style="margin: 16px 0 24px; color: var(--color-text-secondary);">Scale your IT firm with our dedicated team resources.</p>
-                <a href="../index.html#contact" class="btn btn-primary btn-lg">Hire Team</a>
+    <section class="section-block">
+        <div class="page-wrapper">
+            <div class="text-center animate-on-scroll">
+                <div class="section-tag">What's Included</div>
+                <h2 class="section-title">Core <span class="text-gradient">Features</span></h2>
+                <p class="section-description">Everything you get with our dedicated team</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">👥</div>
+                    <h3 class="feature-title">MERN Developer</h3>
+                    <p class="feature-desc">Full-time developer dedicated to your project with expertise in MongoDB, Express, React, Node.js.</p>
+                </div>
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">🎨</div>
+                    <h3 class="feature-title">UI/UX Designer</h3>
+                    <p class="feature-desc">Part-time or full-time designer for all your interface needs.</p>
+                </div>
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">⚙</div>
+                    <h3 class="feature-title">Backend Engineer</h3>
+                    <p class="feature-desc">Node.js, Python, or Go backend developer based on your stack.</p>
+                </div>
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">⚡</div>
+                    <h3 class="feature-title">Priority Delivery</h3>
+                    <p class="feature-desc">SLA guarantees with faster delivery timelines.</p>
+                </div>
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">📊</div>
+                    <h3 class="feature-title">Agile Reporting</h3>
+                    <p class="feature-desc">Jira, Slack, or email updates with progress reports.</p>
+                </div>
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">🎧</div>
+                    <h3 class="feature-title">Full Team Access</h3>
+                    <p class="feature-desc">Direct communication with all team members.</p>
+                </div>
             </div>
         </div>
     </section>
+
+    <section class="section-block alt">
+        <div class="page-wrapper">
+            <div class="text-center animate-on-scroll">
+                <div class="section-tag">What's Doable</div>
+                <h2 class="section-title">Add-On <span class="text-gradient">Features</span></h2>
+                <p class="section-description">Enhance your dedicated team with these extras</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">➕</div>
+                    <h3 class="feature-title">DevOps Engineer</h3>
+                    <p class="feature-desc">Add a DevOps specialist for CI/CD and deployment.</p>
+                </div>
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">🧪</div>
+                    <h3 class="feature-title">QA/Testing</h3>
+                    <p class="feature-desc">Dedicated QA engineer for thorough testing.</p>
+                </div>
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">💼</div>
+                    <h3 class="feature-title">Project Manager</h3>
+                    <p class="feature-desc">Full-time PM to coordinate and manage deliverables.</p>
+                </div>
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">🌐</div>
+                    <h3 class="feature-title">24/7 Coverage</h3>
+                    <p class="feature-desc">Follow-the-sun model with global team coverage.</p>
+                </div>
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">🔗</div>
+                    <h3 class="feature-title">Tool Integration</h3>
+                    <p class="feature-desc">Direct integration with your Jira, Slack, GitHub.</p>
+                </div>
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">📈</div>
+                    <h3 class="feature-title">Custom Reports</h3>
+                    <p class="feature-desc">Tailored reporting dashboards for your needs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-block">
+        <div class="page-wrapper">
+            <div class="text-center animate-on-scroll">
+                <div class="section-tag">How It Works</div>
+                <h2 class="section-title">Our Simple <span class="text-gradient">Process</span></h2>
+                <p class="section-description">From team setup to delivery in 4 steps</p>
+            </div>
+            <div class="process-grid">
+                <div class="process-card animate-on-scroll">
+                    <div class="process-number">01</div>
+                    <div class="process-icon">💬</div>
+                    <h3 class="process-title">Requirement</h3>
+                    <p class="process-desc">We discuss your tech stack and team needs.</p>
+                </div>
+                <div class="process-card animate-on-scroll">
+                    <div class="process-number">02</div>
+                    <div class="process-icon">👥</div>
+                    <h3 class="process-title">Team Setup</h3>
+                    <p class="process-desc">We assign developers matching your requirements.</p>
+                </div>
+                <div class="process-card animate-on-scroll">
+                    <div class="process-number">03</div>
+                    <div class="process-icon">⚡</div>
+                    <h3 class="process-title">Sprints</h3>
+                    <p class="process-desc">Agile development with regular deliverables.</p>
+                </div>
+                <div class="process-card animate-on-scroll">
+                    <div class="process-number">04</div>
+                    <div class="process-icon">📊</div>
+                    <h3 class="process-title">Reporting</h3>
+                    <p class="process-desc">Weekly reports and sprint reviews.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-block alt">
+        <div class="page-wrapper">
+            <div class="text-center animate-on-scroll">
+                <div class="section-tag">Live Preview</div>
+                <h2 class="section-title">See Your <span class="text-gradient">Team</span></h2>
+                <p class="section-description">Sample team structure and workflow</p>
+            </div>
+            <div class="preview-grid">
+                <div class="preview-card animate-on-scroll">
+                    <div class="preview-image">👥</div>
+                    <div class="preview-content">
+                        <h4 class="preview-title">Team Dashboard</h4>
+                        <p class="preview-desc">Track progress and developer activities.</p>
+                    </div>
+                </div>
+                <div class="preview-card animate-on-scroll">
+                    <div class="preview-image">💬</div>
+                    <div class="preview-content">
+                        <h4 class="preview-title">Slack Channel</h4>
+                        <p class="preview-desc">Direct communication with your team.</p>
+                    </div>
+                </div>
+                <div class="preview-card animate-on-scroll">
+                    <div class="preview-image">📊</div>
+                    <div class="preview-content">
+                        <h4 class="preview-title">Reports</h4>
+                        <p class="preview-desc">Weekly sprint reports and metrics.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-block">
+        <div class="page-wrapper">
+            <div class="text-center animate-on-scroll">
+                <div class="section-tag">Why Choose This</div>
+                <h2 class="section-title">Benefits of <span class="text-gradient">Dedicated Team</span></h2>
+                <p class="section-description">Why a dedicated team is perfect for IT firms</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card animate-on-scroll">
+                    <div class="benefit-icon">⚡</div>
+                    <h3 class="benefit-title">Instant Scaling</h3>
+                    <p class="benefit-desc">Add developers instantly without hiring hassles.</p>
+                </div>
+                <div class="benefit-card animate-on-scroll">
+                    <div class="benefit-icon">💰</div>
+                    <h3 class="benefit-title">Cost Effective</h3>
+                    <p class="benefit-desc">Cheaper than hiring full-time employees.</p>
+                </div>
+                <div class="benefit-card animate-on-scroll">
+                    <div class="benefit-icon">👥</div>
+                    <h3 class="benefit-title">Top Talent</h3>
+                    <p class="benefit-desc">Pre-vetted MERN stack developers.</p>
+                </div>
+                <div class="benefit-card animate-on-scroll">
+                    <div class="benefit-icon">📊</div>
+                    <h3 class="benefit-title">Agile Process</h3>
+                    <p class="benefit-desc">Sprints, standups, and agile reporting.</p>
+                </div>
+                <div class="benefit-card animate-on-scroll">
+                    <div class="benefit-icon">🌐</div>
+                    <h3 class="benefit-title">24/7 Coverage</h3>
+                    <p class="benefit-desc">Follow-the-sun model with global coverage.</p>
+                </div>
+                <div class="benefit-card animate-on-scroll">
+                    <div class="benefit-icon">🎧</div>
+                    <h3 class="benefit-title">Peace of Mind</h3>
+                    <p class="benefit-desc">Managed team so you can focus on business.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-block alt">
+        <div class="page-wrapper">
+            <div class="text-center animate-on-scroll">
+                <div class="section-tag">Common Questions</div>
+                <h2 class="section-title">Frequently Asked <span class="text-gradient">Questions</span></h2>
+                <p class="section-description">Everything you need to know before getting started</p>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item active" data-index="0">
+                    <div class="faq-question">
+                        <span>How does billing work?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Per developer at ₹35,000/mo onwards. Billed monthly. Pause or cancel anytime with 30 days notice.</p>
+                    </div>
+                </div>
+                <div class="faq-item" data-index="1">
+                    <div class="faq-question">
+                        <span>Can I scale the team up/down?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! Add or remove developers with 15 days notice. Perfect for changing project needs.</p>
+                    </div>
+                </div>
+                <div class="faq-item" data-index="2">
+                    <div class="faq-question">
+                        <span>What tech stack do they know?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Primarily MERN stack. Additional skills: Python, Go, React Native, UI/UX design.</p>
+                    </div>
+                </div>
+                <div class="faq-item" data-index="3">
+                    <div class="faq-question">
+                        <span>How do I communicate with the team?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Slack, Jira, email, or video calls. Direct access to all team members.</p>
+                    </div>
+                </div>
+                <div class="faq-item" data-index="4">
+                    <div class="faq-question">
+                        <span>What about code ownership?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>You own 100% of the code. We sign NDAs and transfer repos upon request.</p>
+                    </div>
+                </div>
+                <div class="faq-item" data-index="5">
+                    <div class="faq-question">
+                        <span>Can I interview developers first?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! Interview and approve developers before they join your dedicated team.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="page-wrapper">
+        <div class="cta-banner animate-on-scroll">
+            <h2>Need a Full<br>Development Team?</h2>
+            <p>Scale your IT firm with our dedicated team resources. Starting at ₹35,000/mo per developer.</p>
+            <div class="cta-buttons">
+                <a href="../index.html#contact" class="btn btn-primary btn-lg">Hire Team Now</a>
+                <a href="../index.html#contact" class="btn btn-secondary btn-lg">Book Free Consultation</a>
+            </div>
+        </div>
+    </div>
 
     <footer class="footer">
         <div class="container">
@@ -135,5 +421,14 @@
     </footer>
 
     <script src="../script.js"></script>
+    <script>
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.querySelector('.faq-question').addEventListener('click', function() {
+                const isActive = item.classList.contains('active');
+                document.querySelectorAll('.faq-item').forEach(f => f.classList.remove('active'));
+                if (!isActive) item.classList.add('active');
+            });
+        });
+    </script>
 </body>
 </html>

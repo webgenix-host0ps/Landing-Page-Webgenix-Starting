@@ -8,52 +8,72 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../style.css">
     <style>
-        .service-hero {
-            padding: 140px 0 80px;
-            text-align: center;
-            position: relative;
-        }
-        .service-hero h1 {
-            font-family: var(--font-display);
-            font-size: 3.5rem;
-            font-weight: 800;
-            margin-bottom: 20px;
-        }
-        .service-hero .price-tag {
-            font-size: 2rem;
-            color: var(--color-primary);
-            font-weight: 700;
-            margin-bottom: 24px;
-        }
-        .service-details {
-            padding: 80px 0;
-        }
-        .details-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 48px;
-            margin-top: 48px;
-        }
-        .doable-list {
-            list-style: none;
-        }
-        .doable-list li {
-            padding: 12px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            color: var(--color-text-secondary);
-        }
-        .doable-list li::before {
-            content: "✓ ";
-            color: var(--color-success);
-            font-weight: 700;
-        }
-        .cta-box {
-            background: var(--color-surface);
-            border: 1px solid rgba(59,130,246,0.2);
-            border-radius: var(--radius-lg);
-            padding: 48px;
-            text-align: center;
-            margin-top: 64px;
+        .page-wrapper { max-width: 85vw; margin: 0 auto; padding: 0 20px; }
+        .hero-section { padding: 120px 0 60px; min-height: auto; }
+        .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .hero-left { text-align: left; }
+        .hero-badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.2); border-radius: 9999px; font-size: 0.8rem; font-weight: 500; color: var(--color-primary); margin-bottom: 20px; }
+        .hero-title { font-family: var(--font-display); font-size: 3.5rem; font-weight: 800; line-height: 1.1; margin-bottom: 20px; }
+        .hero-desc { font-size: 1.1rem; color: var(--color-text-secondary); margin-bottom: 24px; line-height: 1.7; }
+        .price-display { font-size: 2.5rem; font-weight: 800; color: var(--color-primary); margin-bottom: 24px; }
+        .cta-group { display: flex; gap: 16px; margin-bottom: 20px; }
+        .trust-points { display: flex; gap: 20px; flex-wrap: wrap; }
+        .trust-point { display: flex; align-items: center; gap: 6px; font-size: 0.85rem; color: var(--color-text-secondary); }
+        .hero-right { position: relative; }
+        .browser-mockup { background: var(--color-surface); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+        .browser-bar { background: rgba(255, 255, 255, 0.05); padding: 12px 16px; display: flex; gap: 8px; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+        .browser-dot { width: 12px; height: 12px; border-radius: 50%; }
+        .dot-red { background: #ef4444; } .dot-yellow { background: #f59e0b; } .dot-green { background: #22c55e; }
+        .browser-content { padding: 40px; min-height: 300px; display: flex; align-items: center; justify-content: center; font-size: 4rem; background: linear-gradient(135deg, var(--color-bg), var(--color-surface)); }
+        .floating-badge { position: absolute; padding: 8px 16px; background: var(--color-surface); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 8px; font-size: 0.8rem; box-shadow: 0 8px 20px rgba(0,0,0,0.2); animation: float 3s ease-in-out infinite; }
+        .badge-1 { top: 20%; right: -20px; animation-delay: 0s; } .badge-2 { bottom: 30%; left: -20px; animation-delay: 1s; }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+        .trust-bar { background: var(--color-surface); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 16px; padding: 24px 40px; margin: 0 0 60px; display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px; }
+        .trust-item { display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: var(--color-text-secondary); }
+        .trust-icon { font-size: 1.2rem; }
+        .section-block { padding: 60px 0; }
+        .section-block.alt { background: var(--color-bg-alt); border-radius: 24px; padding: 60px 40px; margin: 0 0 60px; }
+        .section-title { font-family: var(--font-display); font-size: 2.5rem; font-weight: 700; margin-bottom: 16px; }
+        .text-center { text-align: center; }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 40px; }
+        .feature-card { background: var(--color-surface); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 16px; padding: 28px; transition: all 300ms ease; }
+        .feature-card:hover { transform: translateY(-5px); border-color: rgba(59, 130, 246, 0.2); }
+        .feature-icon { font-size: 2rem; margin-bottom: 16px; }
+        .feature-title { font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; margin-bottom: 8px; }
+        .feature-desc { font-size: 0.85rem; color: var(--color-text-secondary); line-height: 1.6; }
+        .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; margin-top: 40px; }
+        .process-card { text-align: center; padding: 32px 16px; background: var(--color-surface); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 16px; transition: all 300ms ease; }
+        .process-card:hover { transform: translateY(-5px); border-color: rgba(139, 92, 246, 0.2); }
+        .process-number { font-family: var(--font-display); font-size: 2.5rem; font-weight: 800; color: var(--color-accent); opacity: 0.3; margin-bottom: 12px; }
+        .process-icon { font-size: 2rem; margin-bottom: 12px; }
+        .process-title { font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; margin-bottom: 8px; }
+        .process-desc { font-size: 0.85rem; color: var(--color-text-secondary); line-height: 1.5; }
+        .preview-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 40px; }
+        .preview-card { background: var(--color-surface); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 16px; overflow: hidden; transition: all 300ms ease; }
+        .preview-card:hover { transform: translateY(-5px); box-shadow: 0 12px 24px rgba(0,0,0,0.2); }
+        .preview-image { height: 200px; background: linear-gradient(135deg, var(--color-bg), var(--color-surface)); display: flex; align-items: center; justify-content: center; font-size: 4rem; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+        .preview-content { padding: 20px; }
+        .preview-title { font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; margin-bottom: 8px; }
+        .preview-desc { font-size: 0.85rem; color: var(--color-text-secondary); }
+        .benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 40px; }
+        .benefit-card { background: var(--color-surface); border: 1px solid rgba(34, 197, 94, 0.2); border-radius: 16px; padding: 28px; transition: all 300ms ease; }
+        .benefit-card:hover { transform: translateY(-5px); border-color: rgba(34, 197, 94, 0.4); }
+        .benefit-icon { font-size: 2rem; margin-bottom: 16px; }
+        .benefit-title { font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; margin-bottom: 8px; }
+        .benefit-desc { font-size: 0.85rem; color: var(--color-text-secondary); line-height: 1.6; }
+        .faq-list { max-width: 800px; margin: 40px auto 0; }
+        .faq-item { border-bottom: 1px solid rgba(255, 255, 255, 0.05); padding: 20px 0; cursor: pointer; }
+        .faq-question { display: flex; justify-content: space-between; align-items: center; font-weight: 600; font-size: 1rem; }
+        .faq-toggle { font-size: 1.5rem; color: var(--color-text-muted); transition: all 250ms ease; font-weight: 300; }
+        .faq-item.active .faq-toggle { transform: rotate(45deg); color: var(--color-primary); }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 350ms ease, margin-top 350ms ease; color: var(--color-text-secondary); font-size: 0.9rem; line-height: 1.7; }
+        .faq-item.active .faq-answer { max-height: 200px; margin-top: 12px; }
+        .cta-banner { background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1)); border: 1px solid rgba(59, 130, 246, 0.2); border-radius: 24px; padding: 60px 40px; text-align: center; margin: 60px 0; }
+        .cta-banner h2 { font-family: var(--font-display); font-size: 2.5rem; font-weight: 800; margin-bottom: 16px; }
+        .cta-banner p { font-size: 1.1rem; color: var(--color-text-secondary); margin-bottom: 32px; max-width: 600px; margin-left: auto; margin-right: auto; }
+        .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+        @media (max-width: 768px) {
+            .hero-grid { grid-template-columns: 1fr; } .hero-left { text-align: center; } .cta-group { justify-content: center; flex-direction: column; align-items: center; } .trust-points { justify-content: center; } .hero-title { font-size: 2.5rem; } .price-display { font-size: 2rem; } .trust-bar { flex-direction: column; align-items: center; }
         }
     </style>
 </head>
@@ -61,74 +81,171 @@
     <header class="header" id="header">
         <div class="container">
             <div class="header-content">
-                <a href="../index.html" class="logo">
-                    <div class="logo-icon"><span>W</span></div>
-                    <span class="logo-text">WebGenix</span>
-                </a>
+                <a href="../index.html" class="logo"><div class="logo-icon"><span>W</span></div><span class="logo-text">WebGenix</span></a>
                 <a href="../index.html#services" class="btn-nav">← Back to Services</a>
             </div>
         </div>
     </header>
 
-    <section class="service-hero">
-        <div class="container">
-            <div class="animate-on-scroll">🏢</div>
-            <h1 class="animate-on-scroll">Enterprise SaaS / Portal</h1>
-            <p class="section-description animate-on-scroll">For high-ticket enterprise clients</p>
-            <div class="price-tag animate-on-scroll">₹2L+ (Custom Quote)</div>
-            <a href="../index.html#contact" class="btn btn-primary btn-lg animate-on-scroll">Get Quote</a>
+    <section class="hero-section">
+        <div class="page-wrapper">
+            <div class="hero-grid">
+                <div class="hero-left animate-on-scroll">
+                    <div class="hero-badge">🏢 Enterprise SaaS</div>
+                    <h1 class="hero-title">Enterprise<br>SaaS / Portal</h1>
+                    <p class="hero-desc">For high-ticket enterprise clients needing scalable solutions.</p>
+                    <div class="price-display">₹2L+ Custom Quote</div>
+                    <div class="cta-group">
+                        <a href="../index.html#contact" class="btn btn-primary btn-lg">Get Quote</a>
+                        <a href="../index.html#contact" class="btn btn-secondary btn-lg">Talk to Expert</a>
+                    </div>
+                    <div class="trust-points">
+                        <div class="trust-point">✓ Custom Quote</div>
+                        <div class="trust-point">✓ Dedicated Team</div>
+                        <div class="trust-point">✓ Scalable</div>
+                    </div>
+                </div>
+                <div class="hero-right animate-on-scroll">
+                    <div class="browser-mockup">
+                        <div class="browser-bar"><div class="browser-dot dot-red"></div><div class="browser-dot dot-yellow"></div><div class="browser-dot dot-green"></div></div>
+                        <div class="browser-content">🏢</div>
+                    </div>
+                    <div class="floating-badge badge-1">🏢 Scalable</div>
+                    <div class="floating-badge badge-2">🔐 Secure</div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section class="service-details">
-        <div class="container">
-            <div class="details-grid">
-                <div class="animate-on-scroll">
-                    <h3 class="step-title">What's Included</h3>
-                    <ul class="doable-list">
-                        <li>CRM/ERP/Portal Development</li>
-                        <li>Subscription Logic & Billing</li>
-                        <li>Automation Workflow Setup</li>
-                        <li>Multi User Roles & Permissions</li>
-                        <li>Scalable Architecture (Microservices)</li>
-                        <li>Dedicated Team Assignment</li>
-                    </ul>
-                </div>
-                <div class="animate-on-scroll">
-                    <h3 class="step-title">What's Doable</h3>
-                    <ul class="doable-list">
-                        <li>Multi-tenant architecture</li>
-                        <li>API gateway & rate limiting</li>
-                        <li>Advanced analytics & reporting</li>
-                        <li>White-label solutions</li>
-                        <li>SSO & SAML integration</li>
-                        <li>Queue systems (RabbitMQ/Kafka)</li>
-                        <li>Kubernetes orchestration</li>
-                        <li>CI/CD pipeline setup</li>
-                        <li>Data migration services</li>
-                        <li>Compliance (GDPR/HIPAA)</li>
-                        <li>Custom AI/ML integrations</li>
-                        <li>24/7 dedicated support</li>
-                    </ul>
-                </div>
-            </div>
+    <div class="page-wrapper">
+        <div class="trust-bar animate-on-scroll">
+            <div class="trust-item"><span class="trust-icon">✓</span> 10+ Enterprise Clients</div>
+            <div class="trust-item"><span class="trust-icon">🏢</span> SaaS Architecture</div>
+            <div class="trust-item"><span class="trust-icon">🔐</span> Enterprise Security</div>
+            <div class="trust-item"><span class="trust-icon">⚡</span> High Performance</div>
+            <div class="trust-item"><span class="trust-icon">🎧</span> Dedicated Support</div>
+        </div>
+    </div>
 
-            <div class="cta-box animate-on-scroll">
-                <h2>Building Enterprise Solutions?</h2>
-                <p style="margin: 16px 0 24px; color: var(--color-text-secondary);">Let's architect your enterprise-grade platform.</p>
-                <a href="../index.html#contact" class="btn btn-primary btn-lg">Start Project</a>
+    <section class="section-block">
+        <div class="page-wrapper">
+            <div class="text-center animate-on-scroll">
+                <div class="section-tag">What's Included</div>
+                <h2 class="section-title">Core <span class="text-gradient">Features</span></h2>
+                <p class="section-description">Everything you need for enterprise solutions</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card animate-on-scroll"><div class="feature-icon">🏢</div><h3 class="feature-title">CRM/ERP/Portal</h3><p class="feature-desc">Full custom CRM, ERP, or portal development tailored to your business.</p></div>
+                <div class="feature-card animate-on-scroll"><div class="feature-icon">💰</div><h3 class="feature-title">Subscription Logic</h3><p class="feature-desc">Billing, recurring payments, and subscription management.</p></div>
+                <div class="feature-card animate-on-scroll"><div class="feature-icon">⚙️</div><h3 class="feature-title">Automation Workflow</h3><p class="feature-desc">Automate business processes and workflows.</p></div>
+                <div class="feature-card animate-on-scroll"><div class="feature-icon">👥</div><h3 class="feature-title">Multi User Roles</h3><p class="feature-desc">Complex permission structures for enterprise needs.</p></div>
+                <div class="feature-card animate-on-scroll"><div class="feature-icon">📡</div><h3 class="feature-title">Scalable Architecture</h3><p class="feature-desc">Microservices, load balancing, and auto-scaling.</p></div>
+                <div class="feature-card animate-on-scroll"><div class="feature-icon">🎧</div><h3 class="feature-title">Dedicated Team</h3><p class="feature-desc">Full team dedicated to your enterprise project.</p></div>
             </div>
         </div>
     </section>
+
+    <section class="section-block alt">
+        <div class="page-wrapper">
+            <div class="text-center animate-on-scroll">
+                <div class="section-tag">What's Doable</div>
+                <h2 class="section-title">Add-On <span class="text-gradient">Features</span></h2>
+                <p class="section-description">Enhance your enterprise solution with these extras</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card animate-on-scroll"><div class="feature-icon">🏢</div><h3 class="feature-title">Multi-Tenant SaaS</h3><p class="feature-desc">Build a SaaS platform with tenant isolation.</p></div>
+                <div class="feature-card animate-on-scroll"><div class="feature-icon">🔗</div><h3 class="feature-title">API Gateway</h3><p class="feature-desc">Rate limiting, auth, and API management.</p></div>
+                <div class="feature-card animate-on-scroll"><div class="feature-icon">📊</div><h3 class="feature-title">Advanced Analytics</h3><p class="feature-desc">Custom reports and business intelligence.</p></div>
+                <div class="feature-card animate-on-scroll"><div class="feature-icon">🏷️</div><h3 class="feature-title">White-Label</h3><p class="feature-desc">Remove our branding for your clients.</p></div>
+                <div class="feature-card animate-on-scroll"><div class="feature-icon">🔐</div><h3 class="feature-title">SSO & SAML</h3><p class="feature-desc">Enterprise authentication integration.</p></div>
+                <div class="feature-card animate-on-scroll"><div class="feature-icon">📡</div><h3 class="feature-title">Kubernetes</h3><p class="feature-desc">Container orchestration for massive scale.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-block">
+        <div class="page-wrapper">
+            <div class="text-center animate-on-scroll">
+                <div class="section-tag">How It Works</div>
+                <h2 class="section-title">Our <span class="text-gradient">Process</span></h2>
+                <p class="section-description">From enterprise architecture to launch</p>
+            </div>
+            <div class="process-grid">
+                <div class="process-card animate-on-scroll"><div class="process-number">01</div><div class="process-icon">💬</div><h3 class="process-title">Enterprise Discovery</h3><p class="process-desc">Deep dive into complex business requirements.</p></div>
+                <div class="process-card animate-on-scroll"><div class="process-number">02</div><div class="process-icon">🏗️</div><h3 class="process-title">Architecture Design</h3><p class="process-desc">System architecture and database design.</p></div>
+                <div class="process-card animate-on-scroll"><div class="process-number">03</div><div class="process-icon">⚡</div><h3 class="process-title">Agile Development</h3><p class="process-desc">Sprints with regular enterprise demos.</p></div>
+                <div class="process-card animate-on-scroll"><div class="process-number">04</div><div class="process-icon">🚀</div><h3 class="process-title">Deploy & Scale</h3><p class="process-desc">Production deployment with enterprise support.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-block alt">
+        <div class="page-wrapper">
+            <div class="text-center animate-on-scroll">
+                <div class="section-tag">Live Preview</div>
+                <h2 class="section-title">See What You'll <span class="text-gradient">Get</span></h2>
+                <p class="section-description">Sample enterprise SaaS dashboards</p>
+            </div>
+            <div class="preview-grid">
+                <div class="preview-card animate-on-scroll"><div class="preview-image">🖥️</div><div class="preview-content"><h4 class="preview-title">Admin Portal</h4><p class="preview-desc">Enterprise dashboard with full controls.</p></div></div>
+                <div class="preview-card animate-on-scroll"><div class="preview-image">📊</div><div class="preview-content"><h4 class="preview-title">Analytics</h4><p class="preview-desc">Business intelligence and reporting.</p></div></div>
+                <div class="preview-card animate-on-scroll"><div class="preview-image">👥</div><div class="preview-content"><h4 class="preview-title">User Management</h4><p class="preview-desc">Roles, permissions, and SSO.</p></div></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-block">
+        <div class="page-wrapper">
+            <div class="text-center animate-on-scroll">
+                <div class="section-tag">Why Choose This</div>
+                <h2 class="section-title">Benefits of <span class="text-gradient">Enterprise</span></h2>
+                <p class="section-description">Why this package is perfect for enterprises</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card animate-on-scroll"><div class="benefit-icon">🏢</div><h3 class="benefit-title">Enterprise Grade</h3><p class="benefit-desc">Built to handle millions of users and transactions.</p></div>
+                <div class="benefit-card animate-on-scroll"><div class="benefit-icon">🔐</div><h3 class="benefit-title">Bank-Grade Security</h3><p class="benefit-desc">SSO, encryption, and compliance ready.</p></div>
+                <div class="benefit-card animate-on-scroll"><div class="benefit-icon">📡</div><h3 class="benefit-title">Infinite Scale</h3><p class="benefit-desc">Auto-scaling infrastructure for any load.</p></div>
+                <div class="benefit-card animate-on-scroll"><div class="benefit-icon">🎧</div><h3 class="benefit-title">Dedicated Team</h3><p class="benefit-desc">Full team dedicated to your success.</p></div>
+                <div class="benefit-card animate-on-scroll"><div class="benefit-icon">📈</div><h3 class="benefit-title">ROI Focused</h3><p class="benefit-desc">Built to deliver measurable business value.</p></div>
+                <div class="benefit-card animate-on-scroll"><div class="benefit-icon">🛡️</div><h3 class="benefit-title">24/7 Support</h3><p class="benefit-desc">Round-the-clock enterprise support.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-block alt">
+        <div class="page-wrapper">
+            <div class="text-center animate-on-scroll">
+                <div class="section-tag">Common Questions</div>
+                <h2 class="section-title">Frequently Asked <span class="text-gradient">Questions</span></h2>
+                <p class="section-description">Everything you need to know before getting started</p>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item active" data-index="0"><div class="faq-question"><span>How long does it take?</span><span class="faq-toggle">+</span></div><div class="faq-answer"><p>3-6 months typically. Enterprise projects are complex and require thorough planning.</p></div></div>
+                <div class="faq-item" data-index="1"><div class="faq-question"><span>Can you sign an NDA?</span><span class="faq-toggle">+</span></div><div class="faq-answer"><p>Absolutely! We sign NDAs and offer code ownership transfer.</p></div></div>
+                <div class="faq-item" data-index="2"><div class="faq-question"><span>What tech stack?</span><span class="faq-toggle">+</span></div><div class="faq-answer"><p>Microservices with MERN, Python, Go, or Java based on needs.</p></div></div>
+                <div class="faq-item" data-index="3"><div class="faq-question"><span>What about compliance?</span><span class="faq-toggle">+</span></div><div class="faq-answer"><p>We build with GDPR, HIPAA, or SOC2 compliance as needed.</p></div></div>
+                <div class="faq-item" data-index="4"><div class="faq-question"><span>Do you provide team?</span><span class="faq-toggle">+</span></div><div class="faq-answer"><p>Yes! Dedicated team with PM, devs, and QA included.</p></div></div>
+                <div class="faq-item" data-index="5"><div class="faq-question"><span>What about support?</span><span class="faq-toggle">+</span></div><div class="faq-answer"><p>1 year free support included. Enterprise SLA available.</p></div></div>
+            </div>
+        </div>
+    </section>
+
+    <div class="page-wrapper">
+        <div class="cta-banner animate-on-scroll">
+            <h2>Ready to Build<br>Enterprise Solution?</h2>
+            <p>Let's architect your enterprise-grade platform. Custom quote starting at ₹2L.</p>
+            <div class="cta-buttons">
+                <a href="../index.html#contact" class="btn btn-primary btn-lg">Get Quote Now</a>
+                <a href="../index.html#contact" class="btn btn-secondary btn-lg">Book Consultation</a>
+            </div>
+        </div>
+    </div>
 
     <footer class="footer">
         <div class="container">
             <div class="footer-top" style="grid-template-columns: 1fr; text-align: center;">
                 <div class="footer-brand">
-                    <div class="logo" style="justify-content: center;">
-                        <div class="logo-icon"><span>W</span></div>
-                        <span class="logo-text">WebGenix</span>
-                    </div>
+                    <div class="logo" style="justify-content: center;"><div class="logo-icon"><span>W</span></div><span class="logo-text">WebGenix</span></div>
                     <p>Building digital experiences for startups and small businesses.</p>
                 </div>
             </div>
@@ -136,5 +253,14 @@
     </footer>
 
     <script src="../script.js"></script>
+    <script>
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.querySelector('.faq-question').addEventListener('click', function() {
+                const isActive = item.classList.contains('active');
+                document.querySelectorAll('.faq-item').forEach(f => f.classList.remove('active'));
+                if (!isActive) item.classList.add('active');
+            });
+        });
+    </script>
 </body>
 </html>
