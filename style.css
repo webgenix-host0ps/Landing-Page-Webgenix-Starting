@@ -1088,17 +1088,23 @@ a { text-decoration: none; color: inherit; }
 @media (max-width: 768px) {
     .header-content {
         flex-wrap: wrap;
-        justify-content: center;
-        gap: 16px;
+        justify-content: space-between;
+        gap: 12px;
     }
     .nav {
+        display: none;
         order: 3;
         width: 100%;
-        justify-content: center;
-        gap: 24px;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        padding: 16px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
     }
+    .nav.active { display: flex; }
     .header-actions {
         order: 2;
+        margin-left: auto;
     }
     .mobile-menu-btn { display: flex; }
     
@@ -1129,39 +1135,6 @@ a { text-decoration: none; color: inherit; }
     .section-title { font-size: 1.75rem; }
 }
 
-/* Theme Toggle Button */
-.theme-toggle {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    border: 1.5px solid rgba(255, 255, 255, 0.1);
-    background: var(--color-surface);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    transition: all 300ms ease;
-    margin-right: 12px;
-}
-
-.theme-toggle:hover {
-    border-color: var(--color-primary);
-    transform: translateY(-2px);
-}
-
-.theme-icon {
-    font-size: 1.3rem;
-    position: absolute;
-    transition: all 400ms ease;
-}
-
-.light-icon { opacity: 0; transform: rotate(-90deg) scale(0); }
-.dark-icon { opacity: 1; transform: rotate(0) scale(1); }
-
-[data-theme="light"] .light-icon { opacity: 1; transform: rotate(0) scale(1); }
-[data-theme="light"] .dark-icon { opacity: 0; transform: rotate(90deg) scale(0); }
-
 /* Light Theme */
 [data-theme="light"] {
     --color-bg: #ffffff;
@@ -1177,13 +1150,20 @@ a { text-decoration: none; color: inherit; }
 }
 
 [data-theme="light"] .header {
-    background: rgba(255, 255, 255, 0.9);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    background: rgba(255, 255, 255, 0.88);
+    border-bottom-color: rgba(0, 0, 0, 0.04);
+    box-shadow: 0 2px 24px rgba(0, 0, 0, 0.04);
 }
 
 [data-theme="light"] .theme-toggle {
     border-color: rgba(0, 0, 0, 0.1);
     background: #f8f9fa;
+}
+
+[data-theme="light"] .theme-toggle:hover {
+    background: rgba(59, 130, 246, 0.05);
+    border-color: rgba(59, 130, 246, 0.2);
+    color: var(--color-primary);
 }
 
 [data-theme="light"] .hero-pattern {

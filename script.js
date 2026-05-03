@@ -278,7 +278,7 @@ function setupSmoothScroll() {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
             if (target) {
-                const headerOffset = 80;
+                const headerOffset = 70;
                 const elementPosition = target.getBoundingClientRect().top;
                 const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
                 
@@ -297,9 +297,11 @@ function setupHeaderScroll() {
     
     window.addEventListener('scroll', function() {
         if (window.pageYOffset > 50) {
-            header.classList.add('scrolled');
+            header.style.boxShadow = '0 2px 24px rgba(0, 0, 0, 0.08)';
+            header.style.borderBottomColor = 'rgba(0, 0, 0, 0.06)';
         } else {
-            header.classList.remove('scrolled');
+            header.style.boxShadow = '0 2px 24px rgba(0, 0, 0, 0.04)';
+            header.style.borderBottomColor = 'rgba(0, 0, 0, 0.04)';
         }
     });
 }
