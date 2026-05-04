@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WebGenix - Fresher Freelancer | Affordable Web Development</title>
+    <title>WebGenix - Affordable Web Development</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -25,7 +25,6 @@
                     <span class="logo-text">WebGenix</span>
                 </a>
                 <nav class="nav" id="nav">
-                    <a href="#portfolio" class="nav-link">Work</a>
                     <a href="#services" class="nav-link">Services</a>
                     <a href="#pricing" class="nav-link">Pricing</a>
                     <a href="#faq" class="nav-link">FAQ</a>
@@ -56,17 +55,16 @@
                     Available for new projects
                 </div>
                 <h1 class="hero-title animate-on-scroll">
-                    Fresher Freelancer<br>
                     Building <span class="text-gradient">Modern Websites</span><br>
                     That Work
                 </h1>
                 <p class="hero-description animate-on-scroll">
-                    Hey! I'm a passionate fresher looking to build awesome websites for startups and small businesses. 
+                    We build awesome websites for startups and small businesses. 
                     <span class="highlight">Quality work at affordable rates</span> — let's grow together! 🚀
                 </p>
                 <div class="hero-actions animate-on-scroll">
-                    <a href="#portfolio" class="btn btn-primary">
-                        See My Work
+                    <a href="#services" class="btn btn-primary">
+                        Explore Services
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M5 12h14M12 5l7 7-7 7"/>
                         </svg>
@@ -119,36 +117,6 @@
                 <span>WordPress</span>
                 <span>Responsive</span>
                 <span>SEO</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- Portfolio Section -->
-    <section class="section" id="portfolio">
-        <div class="container">
-            <div class="section-header animate-on-scroll">
-                <span class="section-tag">My Work</span>
-                <h2 class="section-title">Practice Projects<br><span class="text-gradient">That Show My Skills</span></h2>
-                <p class="section-description">Here's what I've built while learning — imagine what I can do for you!</p>
-            </div>
-            
-            <div class="portfolio-tabs animate-on-scroll">
-                <button class="tab-btn active" data-filter="all">
-                    <span>All</span>
-                    <span class="tab-count">6</span>
-                </button>
-                <button class="tab-btn" data-filter="website">
-                    <span>Websites</span>
-                    <span class="tab-count">3</span>
-                </button>
-                <button class="tab-btn" data-filter="application">
-                    <span>Apps</span>
-                    <span class="tab-count">3</span>
-                </button>
-            </div>
-
-            <div class="portfolio-grid" id="portfolioGrid">
-                <!-- Portfolio items loaded by JS -->
             </div>
         </div>
     </section>
@@ -210,7 +178,7 @@
             <div class="section-header animate-on-scroll">
                 <span class="section-tag">Affordable Pricing</span>
                 <h2 class="section-title">Rates That<br><span class="text-gradient">Make Sense</span></h2>
-                <p class="section-description">As a fresher, I keep it budget-friendly. Quality doesn't have to be expensive!</p>
+                <p class="section-description">Budget-friendly pricing without compromising quality!</p>
             </div>
             <div class="pricing-grid" id="pricingPlans">
                 <!-- Pricing plans loaded by JS -->
@@ -264,15 +232,22 @@
                     <div class="contact-card">
                         <div class="contact-icon-wrap"><span>📧</span></div>
                         <div>
-                            <h4>Email Me</h4>
-                            <p>sales@webgenix.com</p>
+                            <h4>Email Us</h4>
+                            <p>webgenix.host.cloud@gmail.com</p>
                         </div>
                     </div>
                     <div class="contact-card">
                         <div class="contact-icon-wrap"><span>📱</span></div>
                         <div>
                             <h4>WhatsApp</h4>
-                            <p>+91 1800-123-4567</p>
+                            <p>+91 9990230479</p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon-wrap"><span>📍</span></div>
+                        <div>
+                            <h4>Address</h4>
+                            <p>Noida, Sector 46</p>
                         </div>
                     </div>
                     <div class="contact-card">
@@ -291,43 +266,51 @@
                     </div>
                 </div>
                 <div class="contact-form-wrap animate-on-scroll">
-                    <form id="quoteForm" class="contact-form">
+                    <form id="quoteForm" class="contact-form" action="https://formsubmit.co/webgenix.host.cloud@gmail.com" method="POST">
+                        <input type="hidden" name="_subject" value="New WebGenix Inquiry">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_template" value="table">
                         <h3>Start a Conversation</h3>
                         <p class="form-intro">Tell me about your project — no commitment, just a friendly chat!</p>
                         <div class="form-row">
                             <div class="form-group">
                                 <label>Your Name</label>
-                                <input type="text" placeholder="John Doe" required>
+                                <input type="text" name="name" placeholder="John Doe" required>
                             </div>
                             <div class="form-group">
                                 <label>Email Address</label>
-                                <input type="email" placeholder="john@company.com" required>
+                                <input type="email" name="email" placeholder="john@company.com" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label>What Do You Need?</label>
-                            <select required>
+                            <select name="service" required>
                                 <option value="">Select a service</option>
-                                <option>Basic Website (3-5 pages)</option>
+                                <option>Startup Website</option>
+                                <option>Business Growth Website</option>
                                 <option>E-Commerce Store</option>
-                                <option>Landing Page</option>
-                                <option>Website Redesign</option>
+                                <option>Custom Web Application</option>
+                                <option>Managed Hosting</option>
+                                <option>SEO & Growth Retainer</option>
+                                <option>Enterprise SaaS / Portal</option>
+                                <option>Dedicated Dev Team</option>
                                 <option>Not sure yet (let's discuss!)</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label>Your Budget (Optional)</label>
-                            <select>
+                            <select name="budget">
                                 <option value="">Select budget range</option>
                                 <option>₹5,000 - ₹10,000</option>
                                 <option>₹10,000 - ₹20,000</option>
-                                <option>₹20,000+</option>
+                                <option>₹20,000 - ₹50,000</option>
+                                <option>₹50,000+</option>
                                 <option>Let's discuss</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label>Project Details</label>
-                            <textarea rows="4" placeholder="Tell me what you have in mind..."></textarea>
+                            <textarea name="message" rows="4" placeholder="Tell me what you have in mind..."></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary" style="width:100%;">
                             Send Message
@@ -350,7 +333,7 @@
                         <div class="logo-icon"><span>W</span></div>
                         <span class="logo-text">WebGenix</span>
                     </div>
-                    <p>Passionate fresher helping startups and small businesses build their digital presence. Let's grow together! 🚀</p>
+                    <p>Helping startups and small businesses build their digital presence. Let's grow together! 🚀</p>
                 </div>
                 <div class="footer-links">
                     <h4>Services</h4>
@@ -361,14 +344,15 @@
                 </div>
                 <div class="footer-links">
                     <h4>Connect</h4>
-                    <a href="#portfolio">Portfolio</a>
+                    <a href="#services">Services</a>
                     <a href="#pricing">Pricing</a>
                     <a href="#faq">FAQ</a>
+                    <a href="upcoming-projects.html">Projects</a>
                     <a href="#contact">Contact</a>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 WebGenix. Built with ❤️ by a fellow fresher.</p>
+                <p>&copy; 2026 WebGenix. Built with ❤️ by a vibe coder.</p>
                 <div class="footer-social">
                     <a href="#" aria-label="Instagram">IG</a>
                     <a href="#" aria-label="LinkedIn">LI</a>

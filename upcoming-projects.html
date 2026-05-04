@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upcoming Projects - WebGenix</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .page-wrapper { max-width: 85vw; margin: 0 auto; padding: 0 20px; }
+        .hero-section { padding: 120px 0 60px; min-height: auto; }
+        .hero-left { text-align: center; max-width: 700px; margin: 0 auto; }
+        .hero-badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.2); border-radius: 9999px; font-size: 0.8rem; font-weight: 500; color: var(--color-accent); margin-bottom: 20px; }
+        .hero-title { font-family: var(--font-display); font-size: 3.5rem; font-weight: 800; line-height: 1.1; margin-bottom: 20px; }
+        .hero-desc { font-size: 1.1rem; color: var(--color-text-secondary); margin-bottom: 24px; line-height: 1.7; }
+        .cta-group { display: flex; gap: 16px; justify-content: center; margin-bottom: 20px; }
+        .section-block { padding: 60px 0; }
+        .section-title { font-family: var(--font-display); font-size: 2.5rem; font-weight: 700; margin-bottom: 16px; }
+        .text-center { text-align: center; }
+        .text-gradient { background: linear-gradient(135deg, #3b82f6, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .section-tag { display: inline-block; padding: 5px 14px; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.2); border-radius: 9999px; font-size: 0.75rem; font-weight: 500; color: var(--color-primary); margin-bottom: 12px; letter-spacing: 0.03em; text-transform: uppercase; }
+        .section-description { font-size: 1rem; color: var(--color-text-secondary); max-width: 600px; margin: 0 auto; }
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 40px; }
+        .project-card { background: var(--color-surface); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 16px; padding: 28px; transition: all 300ms ease; position: relative; overflow: hidden; }
+        .project-card:hover { transform: translateY(-5px); border-color: rgba(139, 92, 246, 0.2); }
+        .coming-soon-badge { position: absolute; top: 16px; right: 16px; padding: 4px 12px; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.2); border-radius: 9999px; font-size: 0.7rem; font-weight: 600; color: var(--color-accent); }
+        .project-icon { font-size: 2.5rem; margin-bottom: 16px; }
+        .project-title { font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; margin-bottom: 8px; }
+        .project-desc { font-size: 0.85rem; color: var(--color-text-secondary); line-height: 1.6; margin-bottom: 16px; }
+        .project-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+        .project-tag { padding: 4px 10px; background: rgba(59, 130, 246, 0.1); border-radius: 9999px; font-size: 0.7rem; font-weight: 500; color: var(--color-primary); }
+        .progress-section { margin-top: 40px; }
+        .progress-card { background: var(--color-surface); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 16px; padding: 24px; margin-bottom: 16px; }
+        .progress-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+        .progress-title { font-weight: 600; font-size: 0.95rem; }
+        .progress-percent { font-weight: 700; color: var(--color-accent); font-size: 0.9rem; }
+        .progress-bar { height: 8px; background: rgba(255, 255, 255, 0.05); border-radius: 9999px; overflow: hidden; }
+        .progress-fill { height: 100%; background: linear-gradient(135deg, var(--color-primary), var(--color-accent)); border-radius: 9999px; transition: width 600ms ease; }
+        .newsletter-section { background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1)); border: 1px solid rgba(59, 130, 246, 0.2); border-radius: 24px; padding: 60px 40px; text-align: center; margin: 60px 0; }
+        .newsletter-title { font-family: var(--font-display); font-size: 2rem; font-weight: 700; margin-bottom: 12px; }
+        .newsletter-desc { font-size: 1rem; color: var(--color-text-secondary); margin-bottom: 24px; max-width: 500px; margin-left: auto; margin-right: auto; }
+        .newsletter-form { display: flex; gap: 12px; max-width: 400px; margin: 0 auto; }
+        .newsletter-form input { flex: 1; padding: 12px 16px; background: var(--color-bg); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 8px; color: var(--color-text); font-size: 0.9rem; }
+        .newsletter-form input:focus { outline: none; border-color: var(--color-primary); }
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2.5rem; }
+            .newsletter-form { flex-direction: column; }
+            .cta-group { flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon"><span>W</span></div>
+                    <span class="logo-text">WebGenix</span>
+                </a>
+                <nav class="nav" id="nav">
+                    <a href="index.html#services" class="nav-link">Services</a>
+                    <a href="index.html#pricing" class="nav-link">Pricing</a>
+                    <a href="index.html#faq" class="nav-link">FAQ</a>
+                    <a href="upcoming-projects.html" class="nav-link">Projects</a>
+                </nav>
+                <div class="header-actions">
+                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                        <span class="theme-icon light-icon">☀️</span>
+                        <span class="theme-icon dark-icon">🌙</span>
+                    </button>
+                    <a href="index.html#contact" class="btn btn-primary">Start Project</a>
+                </div>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero-section">
+        <div class="page-wrapper">
+            <div class="hero-left animate-on-scroll">
+                <div class="hero-badge">🚀 Coming Soon</div>
+                <h1 class="hero-title">Upcoming<br><span class="text-gradient">Projects</span></h1>
+                <p class="hero-desc">Here's what we're building next. Stay tuned for exciting new products and services launching soon.</p>
+                <div class="cta-group">
+                    <a href="index.html#contact" class="btn btn-primary btn-lg">Get Early Access</a>
+                    <a href="index.html" class="btn btn-secondary btn-lg">← Back to Home</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="page-wrapper">
+        <section class="section-block">
+            <div class="text-center animate-on-scroll">
+                <div class="section-tag">In Development</div>
+                <h2 class="section-title">What We're <span class="text-gradient">Building</span></h2>
+                <p class="section-description">A sneak peek into our upcoming projects and products</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card animate-on-scroll">
+                    <span class="coming-soon-badge">Coming Soon</span>
+                    <div class="project-icon">🌐</div>
+                    <h3 class="project-title">Web File Manager Pro</h3>
+                    <p class="project-desc">A powerful cloud-based file management system with drag-and-drop, sharing, and real-time sync.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">React</span>
+                        <span class="project-tag">Node.js</span>
+                        <span class="project-tag">Cloud Storage</span>
+                    </div>
+                </div>
+                <div class="project-card animate-on-scroll">
+                    <span class="coming-soon-badge">In Progress</span>
+                    <div class="project-icon">🔐</div>
+                    <h3 class="project-title">Web-Based SSH Portal</h3>
+                    <p class="project-desc">Secure browser-based SSH access with terminal management and session recording.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">WebSocket</span>
+                        <span class="project-tag">Security</span>
+                        <span class="project-tag">Terminal</span>
+                    </div>
+                </div>
+                <div class="project-card animate-on-scroll">
+                    <span class="coming-soon-badge">Planning</span>
+                    <div class="project-icon">💼</div>
+                    <h3 class="project-title">SaaS Dashboard Template</h3>
+                    <p class="project-desc">A premium dashboard template with analytics, charts, and user management built with MERN stack.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">MERN</span>
+                        <span class="project-tag">Dashboard</span>
+                        <span class="project-tag">Analytics</span>
+                    </div>
+                </div>
+                <div class="project-card animate-on-scroll">
+                    <span class="coming-soon-badge">Concept</span>
+                    <div class="project-icon">🤖</div>
+                    <h3 class="project-title">AI Content Generator</h3>
+                    <p class="project-desc">AI-powered tool for generating marketing copy, social media posts, and blog content.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">AI</span>
+                        <span class="project-tag">Content</span>
+                        <span class="project-tag">Automation</span>
+                    </div>
+                </div>
+                <div class="project-card animate-on-scroll">
+                    <span class="coming-soon-badge">Coming Soon</span>
+                    <div class="project-icon">📊</div>
+                    <h3 class="project-title">Business Analytics Suite</h3>
+                    <p class="project-desc">Comprehensive analytics platform for small businesses with custom reports and dashboards.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Analytics</span>
+                        <span class="project-tag">Reports</span>
+                        <span class="project-tag">SMB</span>
+                    </div>
+                </div>
+                <div class="project-card animate-on-scroll">
+                    <span class="coming-soon-badge">Planning</span>
+                    <div class="project-icon">🛒</div>
+                    <h3 class="project-title">E-Commerce Platform</h3>
+                    <p class="project-desc">A modern e-commerce platform with inventory management, payments, and shipping integration.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">E-Commerce</span>
+                        <span class="project-tag">Payments</span>
+                        <span class="project-tag">Full-Stack</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-block">
+            <div class="text-center animate-on-scroll">
+                <div class="section-tag">Development Status</div>
+                <h2 class="section-title">Project <span class="text-gradient">Progress</span></h2>
+                <p class="section-description">Track the current status of our upcoming projects</p>
+            </div>
+            <div class="progress-section">
+                <div class="progress-card animate-on-scroll">
+                    <div class="progress-header">
+                        <span class="progress-title">Web File Manager Pro</span>
+                        <span class="progress-percent">75%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 75%"></div>
+                    </div>
+                </div>
+                <div class="progress-card animate-on-scroll">
+                    <div class="progress-header">
+                        <span class="progress-title">Web-Based SSH Portal</span>
+                        <span class="progress-percent">45%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 45%"></div>
+                    </div>
+                </div>
+                <div class="progress-card animate-on-scroll">
+                    <div class="progress-header">
+                        <span class="progress-title">SaaS Dashboard Template</span>
+                        <span class="progress-percent">20%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 20%"></div>
+                    </div>
+                </div>
+                <div class="progress-card animate-on-scroll">
+                    <div class="progress-header">
+                        <span class="progress-title">AI Content Generator</span>
+                        <span class="progress-percent">10%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 10%"></div>
+                    </div>
+                </div>
+                <div class="progress-card animate-on-scroll">
+                    <div class="progress-header">
+                        <span class="progress-title">Business Analytics Suite</span>
+                        <span class="progress-percent">5%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 5%"></div>
+                    </div>
+                </div>
+                <div class="progress-card animate-on-scroll">
+                    <div class="progress-header">
+                        <span class="progress-title">E-Commerce Platform</span>
+                        <span class="progress-percent">5%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 5%"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="newsletter-section animate-on-scroll">
+            <h2 class="newsletter-title">Get Notified When We Launch</h2>
+            <p class="newsletter-desc">Be the first to know when our new projects go live. No spam, just updates.</p>
+            <form class="newsletter-form" id="notifyForm">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit" class="btn btn-primary">Notify Me</button>
+            </form>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top" style="grid-template-columns: 1fr; text-align: center;">
+                <div class="footer-brand">
+                    <div class="logo" style="justify-content: center;">
+                        <div class="logo-icon"><span>W</span></div>
+                        <span class="logo-text">WebGenix</span>
+                    </div>
+                    <p>Helping startups and small businesses build their digital presence. Let's grow together! 🚀</p>
+                </div>
+            </div>
+            <div class="footer-bottom" style="justify-content: center;">
+                <p>&copy; 2026 WebGenix. Built with ❤️ by a vibe coder.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Notify form
+        document.getElementById('notifyForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = this.querySelector('button');
+            btn.textContent = '✓ Subscribed!';
+            btn.style.background = 'linear-gradient(135deg, #22c55e, #16a34a)';
+            setTimeout(() => {
+                btn.textContent = 'Notify Me';
+                btn.style.background = '';
+                this.reset();
+            }, 3000);
+        });
+    </script>
+</body>
+</html>

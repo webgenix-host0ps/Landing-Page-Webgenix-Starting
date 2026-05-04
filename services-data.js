@@ -104,9 +104,8 @@ const servicesData = {
     pricing: [
         {
             name: "Startup Website",
-            price: "7,999",
-            priceMax: "14,999",
-            period: "one-time",
+            price: "5,999+",
+            period: "/starting project",
             featured: false,
             badge: null,
             features: [
@@ -120,9 +119,8 @@ const servicesData = {
         },
         {
             name: "Business Growth Website",
-            price: "19,999",
-            priceMax: "34,999",
-            period: "one-time",
+            price: "11,999+",
+            period: "/starting project",
             featured: false,
             badge: "Popular for SMEs",
             features: [
@@ -136,9 +134,8 @@ const servicesData = {
         },
         {
             name: "E-Commerce Store",
-            price: "29,999",
-            priceMax: "59,999",
-            period: "one-time",
+            price: "17,999+",
+            period: "/starting project",
             featured: true,
             badge: "Best for Online Sales",
             features: [
@@ -152,9 +149,8 @@ const servicesData = {
         },
         {
             name: "Custom Web Application",
-            price: "75,000",
-            priceMax: "+",
-            period: "one-time",
+            price: "49,999+",
+            period: "/starting project",
             featured: false,
             badge: "Agency Premium",
             features: [
@@ -168,8 +164,7 @@ const servicesData = {
         },
         {
             name: "Managed Hosting",
-            price: "1,499",
-            priceMax: "9,999",
+            price: "499+",
             period: "/month",
             featured: false,
             badge: "Recurring Plan",
@@ -184,8 +179,7 @@ const servicesData = {
         },
         {
             name: "SEO & Growth Retainer",
-            price: "4,999",
-            priceMax: "24,999",
+            price: "2,999+",
             period: "/month",
             featured: false,
             badge: "Growth Partner",
@@ -200,9 +194,8 @@ const servicesData = {
         },
         {
             name: "Enterprise SaaS / Portal",
-            price: "2L",
-            priceMax: "+",
-            period: "custom quote",
+            price: "99,999+",
+            period: "/custom quote",
             featured: false,
             badge: "High-Ticket",
             features: [
@@ -216,8 +209,7 @@ const servicesData = {
         },
         {
             name: "Dedicated Dev Team",
-            price: "35,000",
-            priceMax: "+",
+            price: "24,999+",
             period: "/month per developer",
             featured: false,
             badge: "IT Firm Favorite",
@@ -248,11 +240,11 @@ const servicesData = {
         },
         {
             question: "How does the Dedicated Development Team work?",
-            answer: "Perfect for IT firms needing extra hands. You get a full team (MERN developer, UI/UX designer, backend engineer) at ₹35,000/month per developer. Agile reporting included. Scale up or down as needed."
+            answer: "Perfect for IT firms needing extra hands. You get a full team (MERN developer, UI/UX designer, backend engineer) at ₹24,999+/month per developer. Agile reporting included. Scale up or down as needed."
         },
         {
             question: "What's Enterprise SaaS / Portal solution?",
-            answer: "For high-ticket clients needing complex systems like CRM, ERP, or patient portals. Starts at ₹2L+ with a dedicated team, scalable architecture, and automation workflows. Custom quote based on requirements."
+            answer: "For high-ticket clients needing complex systems like CRM, ERP, or patient portals. Starts at ₹99,999+ with a dedicated team, scalable architecture, and automation workflows. Custom quote based on requirements."
         }
     ]
 };

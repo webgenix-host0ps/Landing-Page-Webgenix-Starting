@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function initializePage() {
     setupThemeToggle();
-    renderPortfolio('all');
     renderServices();
     renderPricing();
     renderFAQ();
@@ -111,9 +110,9 @@ function renderPricing() {
             ${plan.badge ? `<div class="pricing-badge">${plan.badge}</div>` : ''}
             <h3 class="pricing-name">${plan.name}</h3>
             <div class="pricing-price">
-                <span class="pricing-amount">₹${plan.price}${plan.priceMax ? ' - ₹' + plan.priceMax : ''}</span>
+                <span class="pricing-amount">₹${plan.price}</span>
             </div>
-            <div class="pricing-period">/${plan.period}</div>
+            <div class="pricing-period">${plan.period}</div>
             <ul class="pricing-features">
                 ${plan.features.map(f => `<li>${f}</li>`).join('')}
             </ul>
@@ -251,22 +250,18 @@ function setupMobileMenu() {
     }
 }
 
-// Quote Form
+// Quote Form - FormSubmit.co handles submission
 function setupQuoteForm() {
     const form = document.getElementById('quoteForm');
     if (form) {
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
+        // FormSubmit.co will handle the actual submission
+        // This just provides visual feedback
+        form.addEventListener('submit', function() {
             const btn = form.querySelector('button[type="submit"]');
-            const originalText = btn.innerHTML;
-            btn.innerHTML = 'Sent! ✓';
-            btn.style.background = 'linear-gradient(135deg, #22c55e, #16a34a)';
-            
-            setTimeout(() => {
-                btn.innerHTML = originalText;
-                btn.style.background = '';
-                form.reset();
-            }, 3000);
+            if (btn) {
+                btn.innerHTML = 'Sending...';
+                btn.disabled = true;
+            }
         });
     }
 }
